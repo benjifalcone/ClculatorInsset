@@ -41,17 +41,66 @@ public class RomanConverterServiceImplTest {
     
     /**
      * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     * With valid value
      */
     @Test
-    public void testConvertDateYears() {
-        System.out.println("convertArabeToRoman");
-        String nbr = "";
+    public void testConvertDateYears_validValue() {
+        //Before
+        System.out.println("convertArabeToRoman_ValidValue");
+        String nbr = "25/10/2024";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        String expResult = "";
+        String expResult = "XXV/X/MXXIV";
+        
+        //When
         String result = instance.convertDateYears(nbr);
+        
+        //Value
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     * With a date with correct format but incorrect value
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testConvertDateYears_invalidDate() {
+        //Before
+        System.out.println("convertArabeToRoman_InvalidDate");
+        String nbr = "32-10-2024";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        
+        //When
+        String result = instance.convertDateYears(nbr);
+    }
+    
+    /**
+     * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     * With a different format than the one expected -> "dd/MM/yyyy"
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testConvertDateYears_unexpectedDateFormat() {
+        //Before
+        System.out.println("convertArabeToRoman_UnexpectedDateFormat");
+        String nbr = "25-10-2024";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        
+        //When
+        String result = instance.convertDateYears(nbr);
+    }
+    
+    /**
+     * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     * With a input that is not a date
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testConvertDateYears_nonDateInput() {
+        //Before
+        System.out.println("convertArabeToRoman_NonDateInput");
+        String nbr = "random string";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        
+        //When
+        String result = instance.convertDateYears(nbr);
     }
     
         /* --- Tests convertArabeToRoman --- */
