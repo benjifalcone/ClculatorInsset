@@ -1,5 +1,10 @@
 package org.insset.shared;
 
+import com.google.gwt.i18n.client.DateTimeFormat;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -64,7 +69,14 @@ public class FieldVerifier {
     }
 
     public static boolean isValidDate(String date) {
-        //Implement your code
-        return true;
+        String dateFormat = "dd/MM/yyyy";
+        
+        try {
+            DateTimeFormat df = DateTimeFormat.getFormat(dateFormat);
+            df.parse(date);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
 }
