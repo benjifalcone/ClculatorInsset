@@ -12,11 +12,11 @@
             </goals>
             <properties>
                 <netbeans.deploy>true</netbeans.deploy>
-<<<<<<< HEAD
+
                 <maven.test.skip>true</maven.test.skip>
-=======
+
                 <netbeans.deploy.clientUrlPart></netbeans.deploy.clientUrlPart>
->>>>>>> newpage
+
             </properties>
         </action>
         <action>
@@ -32,11 +32,11 @@
             <properties>
                 <netbeans.deploy.debugmode>true</netbeans.deploy.debugmode>
                 <netbeans.deploy>true</netbeans.deploy>
-<<<<<<< HEAD
+
                 <maven.test.skip>true</maven.test.skip>
-=======
+
                 <netbeans.deploy.clientUrlPart></netbeans.deploy.clientUrlPart>
->>>>>>> newpage
+
             </properties>
         </action>
         <action>
@@ -52,11 +52,11 @@
             <properties>
                 <netbeans.deploy>true</netbeans.deploy>
                 <netbeans.deploy.profilemode>true</netbeans.deploy.profilemode>
-<<<<<<< HEAD
+
                 <maven.test.skip>true</maven.test.skip>
-=======
+
                 <netbeans.deploy.clientUrlPart></netbeans.deploy.clientUrlPart>
->>>>>>> newpage
+
             </properties>
         </action>
     </actions>
