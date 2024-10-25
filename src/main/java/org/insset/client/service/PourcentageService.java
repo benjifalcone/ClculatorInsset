@@ -16,5 +16,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("pourcentage")
 public interface PourcentageService extends RemoteService {
     
+    Integer division(Integer nbrA, Integer nbrB) throws IllegalArgumentException;
     
 }

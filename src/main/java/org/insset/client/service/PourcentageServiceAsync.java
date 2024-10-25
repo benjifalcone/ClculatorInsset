@@ -6,12 +6,14 @@
 package org.insset.client.service;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.rpc.RemoteService;
 
 /**
  *
  * @author insset
  */
 public interface PourcentageServiceAsync {
+    
+    
+    void division(Integer nbrA, Integer nbrB, AsyncCallback<Integer> callback);
 
 }

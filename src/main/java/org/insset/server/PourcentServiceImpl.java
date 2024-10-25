@@ -15,6 +15,21 @@ import org.insset.client.service.PourcentageService;
 @SuppressWarnings("serial")
 public class PourcentServiceImpl extends RemoteServiceServlet implements
         PourcentageService {
+    
+    /**
+     *
+     * @param nbr
+     * @return
+     * @throws IllegalArgumentException
+     */
+    
+
+    @Override
+    public Integer division(Integer nbrA, Integer nbrB) throws IllegalArgumentException {
+        int result = nbrA / nbrB;
+        return result; 
+    }
+
 
 
 }
