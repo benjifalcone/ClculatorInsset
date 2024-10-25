@@ -10,6 +10,8 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.insset.client.exemple.ExemplePresenter;
 import org.insset.client.calculator.roman.CalculatorRomainPresenter;
+import org.insset.client.pourcentage.PourcentagePresenter;
+
 
 /**
  *
@@ -33,6 +35,10 @@ public class HistoryListener implements ValueChangeHandler<String> {
         }
 
         //Accès a la page pourcentage
+        if (event.getValue().equals("pourcentage")) {
+            RootPanel.get().clear();
+            RootPanel.get().add(new PourcentagePresenter());
+        }
         //Add your code 
     }
 
