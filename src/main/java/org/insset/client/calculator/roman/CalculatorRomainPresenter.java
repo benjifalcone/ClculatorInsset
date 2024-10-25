@@ -155,7 +155,7 @@ public class CalculatorRomainPresenter extends Composite {
         }
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Le nombre doit être compris entre 1 et 3000 inclus.");
             return;
         }
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
@@ -176,8 +176,8 @@ public class CalculatorRomainPresenter extends Composite {
     private void convertDate() {
         //Verif
         if (!FieldVerifier.isValidDate(valD.getText())) {
-            errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelD.addStyleName("serverResponseLabelError");
+            errorLabelD.setText("Format incorect (dd/mm/yyyy attendu)");
             return;
         }
         //call server
