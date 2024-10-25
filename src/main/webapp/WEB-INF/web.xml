@@ -28,6 +28,15 @@
   </servlet-mapping>
   
   <!-- Add your servlet -->
+  <servlet>
+    <servlet-name>pourcentServlet</servlet-name>
+    <servlet-class>org.insset.server.PourcentServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>pourcentServlet</servlet-name>
+    <url-pattern>/calculatorInsset/pourcent</url-pattern>
+  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
