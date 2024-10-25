@@ -5,7 +5,12 @@
  */
 package org.insset.server;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 
 /**
@@ -14,6 +19,25 @@ import static org.junit.Assert.*;
  */
 public class PourcentServiceImplTest {
     
+    public PourcentServiceImplTest() {
+    }
+    
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
     
     
     public void TestDivision_Valid() {
@@ -48,6 +72,7 @@ public class PourcentServiceImplTest {
         
     }
     
+    @Test
     public void TestRemise_Valid() {
         //before
         System.out.println("Remise_Valid");
@@ -57,29 +82,26 @@ public class PourcentServiceImplTest {
         float expResult = 10.75f;
         
         //when
-        boolean result = instance.remise(prix, remise);
+        float result = instance.remise(prix, remise);
         
         //value
-        assertEquals(expResult, result); 
+        assertEquals(expResult, result, 0); 
         
     }
     
+    @Test(expected=IllegalArgumentException.class)
     public void TestRemise_SupCent() {
         //before
         System.out.println("Remise_SupCent");
         float prix = 50f;
         long remise = 102L;
         PourcentServiceImpl instance = new PourcentServiceImpl();
-        String expResult = "Impossible d'avoir une remise superieur a 100%";
-        
         //when
-        boolean result = instance.remise(prix, remise);
-        
-        //value
-        assertEquals(expResult, result); 
+        float result = instance.remise(prix, remise);
         
     }
     
+    @Test
     public void TestRemise_Float() {
         //before
         System.out.println("Remise_Float");
@@ -89,10 +111,10 @@ public class PourcentServiceImplTest {
         float expResult = 2.49f;
         
         //when
-        boolean result = instance.Remise(prix, remise);
+        float result = instance.remise(prix, remise);
         
         //value
-        assertEquals(expResult, result); 
+        assertEquals(expResult, result, 0); 
         
     }
     
@@ -112,19 +134,16 @@ public class PourcentServiceImplTest {
         
     }*/
     
+    @Test(expected=IllegalArgumentException.class)
     public void TestRemise_Negative_Remise() {
         //before
         System.out.println("Remise_Negative_Remise");
         float prix = 15;
         long remise = -30;
         PourcentServiceImpl instance = new PourcentServiceImpl();
-        String expResult = "Impossible d'avoir une remise negative";
         
         //when
-        boolean result = instance.Remise(prix, remise);
-        
-        //value
-        assertEquals(expResult, result); 
+        float result = instance.remise(prix, remise);
         
     }
     
