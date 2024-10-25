@@ -6,6 +6,11 @@
 package org.insset.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 import org.insset.client.service.RomanConverterService;
 
@@ -19,8 +24,17 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return "XV/III/MX";
+        if (!this.isDateValid(nbr)) {
+            throw new IllegalArgumentException("La date doit être valide et au format jj/mm/aaaa");
+        }
+        
+        String[] numbersToConvert = nbr.split("/", 3);
+        List<String> convertedNumbers = new ArrayList<String>();
+        for (String number: numbersToConvert) {
+            convertedNumbers.add(this.oneArabNumberToRoman(Integer.valueOf(number)));
+        }
+        
+        return String.join("/", convertedNumbers);
     }
 
     @Override
@@ -38,7 +52,11 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         return this.oneArabNumberToRoman(nbr);
     }
     
-    
+    /**
+     * Convertit un seul nombre compris entre 1 et 3000 en nombre romain
+     * @param nbr l'entier à convertir
+     * @return la conversion en chiffres romains
+     */
     private String oneArabNumberToRoman(Integer nbr) {
         //Création de la table de correspondance nombre Arabe - Romain
         TreeMap<Integer, String> romanArabMap = new TreeMap<Integer, String>();
@@ -68,6 +86,19 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         }
         
         return nbRoman;
+    }
+    
+    private boolean isDateValid(String date) {
+        String dateFormat = "dd/MM/yyyy";
+        
+        try {
+            DateFormat df = new SimpleDateFormat(dateFormat);
+            df.setLenient(false);
+            df.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 
 }

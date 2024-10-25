@@ -49,7 +49,7 @@ public class RomanConverterServiceImplTest {
         System.out.println("convertDateYears_ValidValue");
         String nbr = "25/10/2024";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        String expResult = "XXV/X/MXXIV";
+        String expResult = "XXV/X/MMXXIV";
         
         //When
         String result = instance.convertDateYears(nbr);
