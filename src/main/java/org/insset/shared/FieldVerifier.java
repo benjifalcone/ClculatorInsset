@@ -52,7 +52,9 @@ public class FieldVerifier {
      * @return true if valid, false if invalid
      */
     public static boolean isValidDecimal(Integer nbr) {
-        //Implement your code
+        if (nbr < 1 || nbr > 3000) {
+            return false;
+        }
         return true;
     }
 
