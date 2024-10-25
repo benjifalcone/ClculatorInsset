@@ -46,7 +46,7 @@ public class RomanConverterServiceImplTest {
     @Test
     public void testConvertDateYears_validValue() {
         //Before
-        System.out.println("convertArabeToRoman_ValidValue");
+        System.out.println("convertDateYears_ValidValue");
         String nbr = "25/10/2024";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         String expResult = "XXV/X/MXXIV";
@@ -65,7 +65,7 @@ public class RomanConverterServiceImplTest {
     @Test(expected=IllegalArgumentException.class)
     public void testConvertDateYears_invalidDate() {
         //Before
-        System.out.println("convertArabeToRoman_InvalidDate");
+        System.out.println("convertDateYears_InvalidDate");
         String nbr = "32-10-2024";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         
@@ -80,7 +80,7 @@ public class RomanConverterServiceImplTest {
     @Test(expected=IllegalArgumentException.class)
     public void testConvertDateYears_unexpectedDateFormat() {
         //Before
-        System.out.println("convertArabeToRoman_UnexpectedDateFormat");
+        System.out.println("convertDateYears_UnexpectedDateFormat");
         String nbr = "25-10-2024";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         
@@ -95,7 +95,7 @@ public class RomanConverterServiceImplTest {
     @Test(expected=IllegalArgumentException.class)
     public void testConvertDateYears_nonDateInput() {
         //Before
-        System.out.println("convertArabeToRoman_NonDateInput");
+        System.out.println("convertDateYears_NonDateInput");
         String nbr = "random string";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         
@@ -112,7 +112,7 @@ public class RomanConverterServiceImplTest {
     @Test
     public void testConvertArabeToRoman_inNumericOrder() {
         //Before
-        System.out.println("convertDateYears_NumericOrder");
+        System.out.println("convertArabeToRoman_NumericOrder");
         Integer nbr = 12;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         String expResult = "XII";
@@ -131,10 +131,10 @@ public class RomanConverterServiceImplTest {
     @Test
     public void testConvertArabeToRoman_inNonNumericOrder() {
         //Before
-        System.out.println("convertDateYears_NonNumericOrder");
+        System.out.println("convertArabeToRoman_NonNumericOrder");
         Integer nbr = 49;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        String expResult = "IL";
+        String expResult = "XLIX";
         
         //When
         String result = instance.convertArabeToRoman(nbr);
@@ -151,7 +151,7 @@ public class RomanConverterServiceImplTest {
     @Test(expected=IllegalArgumentException.class)
     public void testConvertArabeToRoman_overLimitValue() {
         //Before
-        System.out.println("convertDateYears_OverLimitValue");
+        System.out.println("convertArabeToRoman_OverLimitValue");
         Integer nbr = 3207;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         
@@ -166,7 +166,7 @@ public class RomanConverterServiceImplTest {
     @Test(expected=IllegalArgumentException.class)
     public void testConvertArabeToRoman_underLimitValue() {
         //Before
-        System.out.println("convertDateYears_OverLimitValue");
+        System.out.println("convertArabeToRoman_OverLimitValue");
         Integer nbr = -14;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         
