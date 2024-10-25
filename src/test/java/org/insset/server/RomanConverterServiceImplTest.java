@@ -36,13 +36,15 @@ public class RomanConverterServiceImplTest {
     @After
     public void tearDown() {
     }
-
+    
+    /* --- Tests convertDateYears --- */
+    
     /**
      * Test of convertDateYears method, of class RomanConverterServiceImpl.
      */
     @Test
     public void testConvertDateYears() {
-        System.out.println("convertDateYears");
+        System.out.println("convertArabeToRoman");
         String nbr = "";
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         String expResult = "";
@@ -51,35 +53,76 @@ public class RomanConverterServiceImplTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of convertRomanToArabe method, of class RomanConverterServiceImpl.
-     */
-    @Test
-    public void testConvertRomanToArabe() {
-        System.out.println("convertRomanToArabe");
-        String nbr = "";
-        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        Integer expResult = null;
-        Integer result = instance.convertRomanToArabe(nbr);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
+        /* --- Tests convertArabeToRoman --- */
 
     /**
      * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
+     * When every roman number is in increasing value order (I->V->X->L...)   
      */
     @Test
-    public void testConvertArabeToRoman() {
-        System.out.println("convertArabeToRoman");
-        Integer nbr = null;
+    public void testConvertArabeToRoman_inNumericOrder() {
+        //Before
+        System.out.println("convertDateYears_NumericOrder");
+        Integer nbr = 12;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        String expResult = "";
+        String expResult = "XII";
+        
+        //When
         String result = instance.convertArabeToRoman(nbr);
+        
+        //Assert
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
+     * When every roman number is not necessary in increasing value order (I->V->X->L...)   
+     */
+    @Test
+    public void testConvertArabeToRoman_inNonNumericOrder() {
+        //Before
+        System.out.println("convertDateYears_NonNumericOrder");
+        Integer nbr = 49;
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        String expResult = "IL";
+        
+        //When
+        String result = instance.convertArabeToRoman(nbr);
+        
+        //Assert
+        assertEquals(expResult, result);
+    }
+    
+    
+    /**
+     * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
+     * When every roman number is not necessary in increasing value order (I->V->X->L...)   
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testConvertArabeToRoman_overLimitValue() {
+        //Before
+        System.out.println("convertDateYears_OverLimitValue");
+        Integer nbr = 3207;
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        
+        //When
+        String result = instance.convertArabeToRoman(nbr);
+    }
+    
+    /**
+     * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
+     * When every roman number is not necessary in increasing value order (I->V->X->L...)   
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testConvertArabeToRoman_underLimitValue() {
+        //Before
+        System.out.println("convertDateYears_OverLimitValue");
+        Integer nbr = -14;
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        
+        //When
+        String result = instance.convertArabeToRoman(nbr);
     }
     
 }
