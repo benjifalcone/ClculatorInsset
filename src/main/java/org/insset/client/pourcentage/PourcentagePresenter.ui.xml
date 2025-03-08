@@ -11,7 +11,30 @@
             <g:FormPanel/>
               
             <g:FlowPanel>
-                <g:Label>Pourcentage</g:Label>
+                <g:Label>Division</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Valeur1</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valA" text="Entrer un nombre"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Valeur2</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valB" text="Entrer un nombre"/>
+            </g:FlowPanel>
+            <g:FlowPanel ui:field="formActions" >
+                <g:SubmitButton ui:field="boutonDiv" text="Envoyer"/>
+                <g:ResetButton ui:field="boutonClear" text="Clear"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToA" ></g:Label>
+            </g:FlowPanel>
+            
+            <g:FlowPanel>
+                <g:Label>Remise sur prix</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
               <g:TextBox ui:field="porce" text="Entrer un nombre"/>
@@ -19,9 +42,9 @@
             <g:FlowPanel>
                 <g:Label ui:field="errorLabel" ></g:Label>
             </g:FlowPanel>
-            <g:FlowPanel ui:field="formActions" >
+            <g:FlowPanel>
                 <g:SubmitButton ui:field="boutonEnregistrer" text="Envoyer"/>
-                <g:ResetButton ui:field="boutonClear" text="Clear"/>
+                <g:ResetButton ui:field="boutonClearB" text="Clear"/>
             </g:FlowPanel>
         </g:FlowPanel>
     </div>

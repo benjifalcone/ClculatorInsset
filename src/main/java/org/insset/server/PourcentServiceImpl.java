@@ -32,5 +32,18 @@ public class PourcentServiceImpl extends RemoteServiceServlet implements
         return ((float) finalValue / 100);
     }
 
+        /**
+     *
+     * @param nbr
+     * @return
+     * @throws IllegalArgumentException
+     */
+
+
+    @Override
+    public Integer division(Integer nbrA, Integer nbrB) throws IllegalArgumentException {
+        int result = nbrA / nbrB;
+        return result; 
+    }
 
 }
